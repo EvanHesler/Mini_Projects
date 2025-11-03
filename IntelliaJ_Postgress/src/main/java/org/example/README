@@ -1,0 +1,28 @@
+This is a basic Java written program that conducts CRUD (create, read, update, delete) opertations
+And involves a connection to postgress or Pgadmin4
+
+Postgress database creation scripts
+CREATE TABLE students (
+    student_id SERIAL PRIMARY KEY,
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    email TEXT NOT NULL UNIQUE,
+    enrollment_date DATE
+);
+
+INSERT INTO students (first_name, last_name, email, enrollment_date) VALUES
+('John', 'Doe', 'john.doe@example.com', '2023-09-01'),
+('Jane', 'Smith', 'jane.smith@example.com', '2023-09-01'),
+('Jim', 'Beam', 'jim.beam@example.com', '2023-09-02');
+
+1: To actually run this program you must have postgress installed and have the program running with the database created
+2: You must then change the final part (Assignment3) this line in the code:
+    private final String url = "jdbc:postgresql://localhost:5432/Assignment3";
+    to instead connect to whatever the name of the database you are using
+3: from there you also have to put in your username and password within the following lines
+    private final String user = "postgres";
+    private final String password = "password";
+4: you then run the program and you are able to do the CRUD operations as long as they follow the prepared statements
+
+Youtube demonstration:
+https://www.youtube.com/watch?v=8EvvVh229WM
