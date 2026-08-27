@@ -4,7 +4,6 @@ Moves a video to a specified position within a playlist the user owns.
 """
 
 import os
-import sys
 from dataclasses import dataclass
 from typing import Optional
 
@@ -49,6 +48,7 @@ class PlaylistItemRecord:
     item_id: str          # playlist item ID (needed for update)
     video_id: str          # video ID (for display / matching)
     title: str
+    #creator: str
     position: int
     playlist_id: str
 
@@ -74,6 +74,7 @@ def list_my_playlists(youtube):
                 }
             )
         request = youtube.playlists().list_next(request, response)
+    playlists.sort(key=lambda p: p["title"].casefold())
     return playlists
 
 
